@@ -1,0 +1,123 @@
+<link rel="stylesheet" href="ecm/externalJS/PGS/html/PGS_CommitteeReview.css?v=1.0.0">
+
+<div class="border border-dark-subtle rounded-2 mx-2 p-2 mb-3">
+    <div class="row align-items-center">
+        <div class="col-auto">
+            <div class="d-flex">
+                <i class="bi bi-info-circle-fill px-2" style="color: #c80b0b;"></i>
+                <h6 id="infoMessage" class="my-1" style="color: #980b05;"></h6>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="accordion m-2" id="headerAccordion">
+    <div class="card">
+        <div class="card-header" id="headingHeader">
+            <h6 class="mb-0" data-toggle="collapse" data-target="#collapseHeader" aria-expanded="true"
+                aria-controls="collapseHeader">
+                Project Details
+            </h6>
+        </div>
+        <div id="collapseHeader" class="collapse show" aria-labelledby="headingHeader" data-parent="#headerAccordion">
+            <div class="card-body p-2">
+                <div class="form-section">
+
+                    <!-- Row 1: Raised Date + Current Stage -->
+                    <div>
+                        <label for="raisedDate">Date Created</label>
+                        <input type="text" id="raisedDate" disabled>
+                    </div>
+                    <div>
+                        <label for="currentStage">Current Stage</label>
+                        <input type="text" id="currentStage" disabled>
+                    </div>
+
+                    <!-- Row 2: Controlling Team + Initiator Name -->
+                    <div>
+                        <label for="controllingTeam">Controlling Team</label>
+                        <input type="text" id="controllingTeam" disabled>
+                    </div>
+                    <div>
+                        <label for="initiatorName">Initiator Name</label>
+                        <input type="text" id="initiatorName" disabled>
+                    </div>
+
+                    <!-- Row 3: Study Title (Full Width) -->
+                    <div class="full-width">
+                        <label for="studyTitle">Study Title</label>
+                        <input type="text" id="studyTitle" disabled>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<div id="prcSecretarySection" class="mt-3 mx-2">
+    <div class="card">
+        <div class="card-header bg-secondary text-white">
+            Manage PRC Committee Review
+        </div>
+        <div class="card-body">
+            <div id="reviewTableGrid" style="padding: 5px;" class="reviewStyle"></div>
+            <div style="width: 100%; min-height: 100px" id="CommitteetargetDiv"></div>
+        </div>
+    </div>
+</div>
+
+<div id="prcMemberSection"  class="mt-3 mx-2">
+    <div class="card">
+        <div class="card-header bg-secondary text-white">
+            Team Review Comments
+        </div>
+        <div class="card-body">
+            <div class="list-group" id="lgComments">
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="txtComments" class="form-label">Comments / Recommentation<small> (Max 1000 Characters. Attach document in case of more comments.)</small></label>
+                <textarea class="form-control" id="txtComments" maxlength="1000" rows="3" style="padding: .375rem .0rem;"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="accordion m-2" id="assessmentAccordion">
+    <div class="card">
+        <div class="card-header" id="headingAssessment">
+            <h6 id="assessmentHeader" class="mb-0" data-toggle="collapse" data-target="#collapseAssessment"
+                aria-expanded="true" aria-controls="collapseAssessment">
+                Assessment Criteria
+            </h6>
+        </div>
+        <div id="collapseAssessment" class="collapse show" aria-labelledby="headingAssessment"
+            data-parent="#assessmentAccordion">
+            <div class="card-body p-3">
+                <div id="assessmentGridContainer" style="padding: 10px; min-height: 200px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="accordion m-2" id="deliverablesAccordion">
+    <div class="card">
+        <div class="card-header" id="headingDeliverables">
+            <h6 id="deliverablesHeader" class="mb-0" data-toggle="collapse" data-target="#collapseDeliverables"
+                aria-expanded="true" aria-controls="collapseDeliverables">
+                Deliverables
+            </h6>
+        </div>
+        <div id="collapseDeliverables" class="collapse show" aria-labelledby="headingDeliverables"
+            data-parent="#deliverablesAccordion">
+            <div class="card-body p-3">
+                <div id="deliverablesGridContainer" style="padding: 10px; min-height: 200px;"></div>
+            </div>
+        </div>
+    </div>
+</div>

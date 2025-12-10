@@ -1,0 +1,59 @@
+.form-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.15rem;
+  color: #795548;
+  font-size: 0.75rem;
+}
+
+input[type="text"],
+input[type="date"],
+textarea {
+  width: 98% !important;
+  padding: 0.3rem 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 0.75rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+.card-header h6 {
+  margin-bottom: 0;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.accordion .card {
+  border-radius: 0;
+  border: 1px solid #dee2e6;
+}
+
+.accordion .card-header {
+  background-color: #6c757d;
+  color: white;
+}
+
+.accordion .collapse.show {
+  border-top: 1px solid #dee2e6;
+}
+
+.oneui.ecm.icn .dijitTextBox {
+  width: 90%;
+}
+
+/* .oneui.ecm .gridx .gridxHeaderRow .gridxCell {
+  text-align: center;
+} */
