@@ -27,24 +27,24 @@ define([
     HTMLLoader, CommitteeUtils, Store, Grid, Cache,html, moment,dom, domConstruct,domStyle,on
 ) {
     return function (payload) {
-        var coord = payload.coordination
-        var wiEditable = payload.workItemEditable
+        var coord = payload.coordination;
+        var wiEditable = payload.workItemEditable;
         var currentRole = ecm.model.desktop.currentRole.auth_name; // Get current role
-        var currentStage = wiEditable.getProperty('F_CaseFolder', 'OPCB_CurrentStage')?.value || ''
-        var stageNum = currentStage.replace(/\D/g, '')
+        var currentStage = wiEditable.getProperty('F_CaseFolder', 'OPCB_CurrentStage')?.value || '';
+        var stageNum = currentStage.replace(/\D/g, '');
         var isEditable = [
             'Controlling Team Leader',
             'Controlling Team Representative',
-        ].includes(currentRole)
+        ].includes(currentRole);
 
         /*================================= BEFORELOADWIDGET ================================= */
         coord.participate(
             Constants.CoordTopic.BEFORELOADWIDGET,
             function (context, complete) {
                 var observer = new MutationObserver(function () {
-                    var controllingTeamEl = document.getElementById('controllingTeam')
+                    var controllingTeamEl = document.getElementById('controllingTeam');
                     if (!controllingTeamEl) return
-                    observer.disconnect()
+                    observer.disconnect();
                     document.getElementById('infoMessage').textContent =
                         wiEditable.getProperty('F_CaseFolder', 'OPCB_InfoMessage')?.value || '';
 
@@ -64,7 +64,7 @@ define([
                     document.getElementById('studyTitle').value =
                         wiEditable.getProperty('F_CaseFolder', 'OPCB_StudyTitle')?.value ||
                         ''
-                    document.getElementById('currentStage').value = currentStage
+                    document.getElementById('currentStage').value = currentStage;
 
                     // Load Assessment Checklist Grid
                     ChecklistUtils.loadChecklistGrid(
@@ -152,23 +152,24 @@ define([
                     var teamName = selTeam ? selTeam.TeamName : teamCode;
                     var comment = comments[i] || "No comment";
                     var submittedOn = dates[i] ? moment(dates[i]).format("DD MMM YYYY h:mm a") : "";
-                    commentsHtml += `
-                <div class='list-group-item'>
-                    <div class='d-flex w-100 justify-content-between'>
-                        <h6 class='mb-1' style='color: #c80b0b;'>${teamName}</h6>
-                        <small style='color: #c80b0b;'>${submittedOn}</small>
-                    </div>
-                    <p class='mb-1'><i class='bi bi-chat-square-text-fill' style='color: #c80b0b;'></i> ${comment}</p>
-                </div>`;
+                    commentsHtml +=
+                        "<div class='list-group-item'>" +
+                            "<div class='d-flex w-100 justify-content-between'>" +
+                                "<h6 class='mb-1' style='color: #c80b0b;'>" + teamName + "</h6>" +
+                                "<small style='color: #c80b0b;'>" + submittedOn + "</small>" +
+                            "</div>" +
+                            "<p class='mb-1'><i class='bi bi-chat-square-text-fill' style='color: #c80b0b;'></i> " + comment + "</p>" +
+                        "</div>";
                 }
+
                 commentsHtml += "</div></div></div>";
             } else {
-                commentsHtml = `
-            <div class='card m-3'>
-                <div class='card-body'>
-                    The submission is under review. No comments have been added yet.
-                </div>
-            </div>`;
+            	   commentsHtml =
+                       "<div class='card m-3'>" +
+                           "<div class='card-body'>" +
+                               "The submission is under review. No comments have been added yet." +
+                           "</div>" +
+                       "</div>";
             }
 
             return commentsHtml;

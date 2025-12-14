@@ -10,9 +10,7 @@ define([
     try {
       var newComment = document.getElementById("txtComments_"+wiEditable.id);
 
-            console.log(window.KGOCTeams);
-    var currentStage =
-      wiEditable.getProperty('F_CaseFolder', 'OPCB_CurrentStage')?.value || ''
+    var currentStage = wiEditable.getProperty('F_CaseFolder', 'OPCB_CurrentStage')?.value || '';
     var stageNum = currentStage.replace(/\D/g, '')
       var currentDeptCode = wiEditable.getProperty("F_CaseTask", "OPCB_DepartmentCode").value;
 	    var reviewTeamCodes = [];

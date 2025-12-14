@@ -11,7 +11,7 @@ define([
   function CloseGateEvents(wiEditable,currentStages, response) {
     try {      
       var currentCase = wiEditable.getCase();
-      var ControllingTeam = wiEditable.getProperty('F_CaseFolder', 'OPCB_ControllingTeam')?.value || ''
+      var ControllingTeam = wiEditable.getProperty('F_CaseFolder', 'OPCB_ControllingTeam')?.value || '';
       const stageNum = currentStages;
       if(stageNum === 2 || response === "Skip to Stage 4"){
         currentCase.createNewTaskEditable(

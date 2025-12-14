@@ -24,9 +24,8 @@ define([
 
     var currentRole = ecm.model.desktop.currentRole.auth_name; 
     var customJS = new KGOCCustomJS();
-    var currentStage =
-      wiEditable.getProperty('F_CaseFolder', 'OPCB_CurrentStage')?.value || ''
-    var stageNum = currentStage.replace(/\D/g, '')
+    var currentStage = wiEditable.getProperty('F_CaseFolder', 'OPCB_CurrentStage')?.value || '';
+    var stageNum = currentStage.replace(/\D/g, '');
     var isEditable = [
       'Controlling Team Leader',
       'Controlling Team Representative',
@@ -43,9 +42,8 @@ define([
             console.log(window.KGOCTeams);
             console.log(window.KGOCGroups);
             console.log(window);
-          observer.disconnect()
-          document.getElementById('infoMessage').textContent =
-            wiEditable.getProperty('F_CaseFolder', 'OPCB_InfoMessage')?.value || '';
+          observer.disconnect();
+          document.getElementById('infoMessage').textContent =  wiEditable.getProperty('F_CaseFolder', 'OPCB_InfoMessage')?.value || '';
 
           document.getElementById('controllingTeam').value =
             wiEditable.getProperty('F_CaseFolder', 'OPCB_ControllingTeam')

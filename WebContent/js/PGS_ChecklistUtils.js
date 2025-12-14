@@ -5,11 +5,11 @@ define(['ecm/externalJS/PGS/js/PGS_GridUtils'], function (GridUtils) {
       var propName =
         'OPCB_Phase' +
         stageNum +
-        (suffix === 'Checklist' ? 'ChoiceList' : suffix)
-      var resultProp = 'OPCB_Phase' + stageNum + suffix + 'Results1'
+        (suffix === 'Checklist' ? 'ChoiceList' : suffix);
+      var resultProp = 'OPCB_Phase' + stageNum + suffix + 'Results1';
 
-      var choices = wiEditable.getProperty('F_CaseFolder', propName)?.choiceList?.choices || []
-      var savedList = wiEditable.getProperty('F_CaseFolder', resultProp)?.value || []
+      var choices = wiEditable.getProperty('F_CaseFolder', propName)?.choiceList?.choices || [];
+      var savedList = wiEditable.getProperty('F_CaseFolder', resultProp)?.value || [];
     
       var savedItems = savedList.map(function (str) {
         try {
@@ -17,7 +17,7 @@ define(['ecm/externalJS/PGS/js/PGS_GridUtils'], function (GridUtils) {
         } catch (e) {
           return null
         }
-      }).filter(Boolean)
+      }).filter(Boolean);
 
       var data = choices.map(function (choice) {
         var match = savedItems.find(function (r) {
@@ -29,15 +29,15 @@ define(['ecm/externalJS/PGS/js/PGS_GridUtils'], function (GridUtils) {
           Assessed: match?.assessed || false,
           Comments: match?.comments || '',
         }
-      })
+      });
 
       var gridId =
         (suffix === 'Checklist' ? 'assessmentGrid_' : 'deliverablesGrid_') +
-        wiEditable.id
+        wiEditable.id;
       var containerId =
         suffix === 'Checklist'
           ? 'assessmentGridContainer'
-          : 'deliverablesGridContainer'
+          : 'deliverablesGridContainer';
 
       GridUtils.createChecklistGrid(containerId, gridId, '', data, isEditable)
     },
